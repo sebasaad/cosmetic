@@ -1,9 +1,12 @@
 from audioop import reverse
 from imaplib import _Authenticator
 from multiprocessing import AuthenticationError
+from sqlite3 import IntegrityError
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+
+from beauty.models import User
 
 # Create your views here.
 
@@ -33,3 +36,33 @@ def login_view(request):
             })
     else:
         return render(request, "beauty/login.html")
+    
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("index"))
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        email = request.POST["email"]
+
+        # Ensure password matches confirmation
+        password = request.POST["password"]
+        confirmation = request.POST["confirmation"]
+        if password != confirmation:
+            return render(request, "beauty/register.html", {
+                "message": "Passwords must match."
+            })
+
+        # Attempt to create new user
+        try:
+            user = User.objects.create_user(username, email, password)
+            user.save()
+        except IntegrityError:
+            return render(request, "beauty/register.html", {
+                "message": "Username already taken."
+            })
+        login(request, user)
+        return HttpResponseRedirect(reverse("index"))
+    else:
+        return render(request, "beauty/register.html")
