@@ -22,11 +22,7 @@
     </head>
     <body>
    
-{% block content %}
- 
 
-
-{% endblock content %}
 
             <section id="header">
                 <a ><i class="fas fa-crow fa-1x me-1 pt " style="color: palevioletred;"></i>
@@ -45,7 +41,13 @@
                             <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
                         </ul>
                     </div>
+                  <!--  <img src="{% static 'images/lotion.jpg'%}"> -->
             </section>
+            {% block content %}
+ 
+
+
+{% endblock content %}
 
     </body>
     

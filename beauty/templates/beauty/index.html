@@ -2,9 +2,51 @@
 {% load static %}
 {% block content %}
 
- <!-- start navbar -->
- 
-    <!-- end navbar -->
+  <section id="hero" >
+    <img src="{% static 'images/header.jpg' %}" style="height:80vh; width: 100%; background-size: cover; background-position: top 25% right 0; padding: 10px 80px 0; display: flex;"/>
+    
+  </section>
    
+
+  <section id="categories" class="section-p1" style="display: flex; align-items:center; justify-content:space-between; flex-wrap: wrap;">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/lotion.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lotions</h6>
+
+
+    </div>
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/shadow.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">shadow</h6>
+
+
+    </div>
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/serume.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Serume</h6>
+
+
+    </div>
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/mascara.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Mascara</h6>
+
+
+    </div>
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/liostick.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lipstock</h6>
+
+
+    </div>
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 28px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <img src="{% static 'images/seeall.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <button style=" display:inline-block; padding: 6px 8px 5px 8px; line-height:1; border-radius:4px ; background-color: #fddde4;border: none; font-size: 15px; ">See all >></button>
+
+
+    </div>
+
+
+  </section>
 {% endblock %}
    
