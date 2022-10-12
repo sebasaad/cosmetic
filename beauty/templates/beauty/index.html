@@ -1,7 +1,7 @@
 {% extends "beauty/layout.html" %}
 {% load static %}
 {% block content %}
-
+{% csrf_token %}
   <section id="hero" >
     <img src="{% static 'images/header.jpg' %}" style="height:80vh; width: 100%; background-size: cover; background-position: top 25% right 0; padding: 10px 80px 0; display: flex;"/>
     
@@ -15,31 +15,31 @@
 
 
     </div>
-    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
         <img src="{% static 'images/shadow.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">shadow</h6>
 
 
     </div>
-    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
         <img src="{% static 'images/serume.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Serume</h6>
 
 
     </div>
-    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
         <img src="{% static 'images/mascara.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Mascara</h6>
 
 
     </div>
-    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
         <img src="{% static 'images/liostick.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lipstock</h6>
 
 
     </div>
-    <div class="ca-box" style="width: 180px; text-align:center; padding: 28px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+    <div class="ca-box" style="width: 180px; text-align:center; padding: 28px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
         <img src="{% static 'images/seeall.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <button style=" display:inline-block; padding: 6px 8px 5px 8px; line-height:1; border-radius:4px ; background-color: #fddde4;border: none; font-size: 15px; ">See all >></button>
 
@@ -51,21 +51,21 @@
 
   
    <section id="product1" class="section-p1" style="text-align:center ;">
-    <h2>Featured Products</h2>
+    <h2><a class="nav-link" href="{% url 'create' %}">Featured Products</a></h2>
     <p>
         Special product and new collection
     </p>
     <div class="pro-container" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
         <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
-            <img src="{% static 'images/p1.jpg'%}" style="width: 100%; border-radius:20px; height: 320px;">
+            <img src="{{ Product.image }}" style="width: 100%; border-radius:20px; height: 320px;">
             <div class="cat" style="text-align: start; padding:10px 0;">
-                <span style="color:#606063; font-size:12px;">foundation</span>
-                <h5 style="padding-top:7px; color: #1a1a1a; font-size: 18px; font-weight: 700;">hollywood</h5>
-                <h4 style="padding-top:2px ; font-size:17px; font-weight: 600; color: palevioletred;">25$</h4>
+                <span style="color:#606063; font-size:12px;">{{ Product.category }}</span>
+                <h5 style="padding-top:7px; color: #1a1a1a; font-size: 18px; font-weight: 700;">{{ Product.productName }}</h5>
+                <h4 style="padding-top:2px ; font-size:17px; font-weight: 600; color: palevioletred;">{{ Product.price }}</h4>
             </div>
             <a href="#" style="width: 40px; height:40px; line-height:40px; border-radius:50px; background-color: #e8f6ea; font-weight:500;color:palevioletred; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right:10px; "><i class="fa-solid fa-cart-shopping" ></i></a>
         </div>
-        <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
+       <!-- <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
             <img src="{% static 'images/p2.jpg'%}" style="width: 100%; border-radius:20px; height: 320px;">
             <div class="cat" style="text-align: start; padding:10px 0;">
                 <span style="color:#606063; font-size:12px;">foundation</span>
@@ -128,9 +128,29 @@
             </div>
             <a href="#" style="width: 40px; height:40px; line-height:40px; border-radius:50px; background-color: #e8f6ea; font-weight:500;color:palevioletred; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right:10px; "><i class="fa-solid fa-cart-shopping" ></i></a>
         </div>
+    -->
         
     </div>
    </section>
+   
+    <section id="sm-banner" class="section-p1">
+  
+        <div class="banner-box" style=" display:flex; justify-content:space-between;  flex-wrap:wrap;">
+            <img src="{% static 'images/ban1.jpg'%}" style="width:50%">
+            <img src="{% static 'images/ban2.jpg'%}" style="width:50%">
+        </div>
+    </section>
+
+    <section id="footer" style="background-color: rgb(18 , 17 ,39 ) ;">
+        <div class="footericon">
+            <ul id="ficon" >
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+            </ul>
+        </div>
+    </section>
 
 {% endblock %}
    

@@ -1,0 +1,39 @@
+{% extends "beauty/layout.html" %}
+
+{% block content %}
+    <h2>Create New Product</h2>
+
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" class="form-control" id="productName" placeholder="Enter Product Name">
+        </div>
+        <div class="form-group">
+            <label for="information">Information</label>
+            <input type="text" name="information" class="form-control" id="information" placeholder="Enter information">
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" name="image" class="form-control" id="image" placeholder="Enter Image">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" min="0" name="price" class="form-control" id="price" placeholder="Enter Price">
+        </div>
+        <div class="form-group">
+            <label for="category">Choose a Category:</label>
+             <select name="category" id="category">
+               {% for category in categories %}
+                <option value="{{ category.id }}">{{ category }}</option>
+               {% endfor %}
+             </select>
+        
+
+        </div>
+        <button type="submit" class="btn btn-primary">Create New Listing</button>
+        
+    </form>
+
+    
+{% endblock %}

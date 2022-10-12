@@ -5,8 +5,9 @@ from sqlite3 import IntegrityError
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import  redirect
 
-from beauty.models import User
+from beauty.models import User, Category, Product
 
 # Create your views here.
 
@@ -63,6 +64,37 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        return redirect("index")
     else:
         return render(request, "beauty/register.html")
+
+
+
+
+        
+def createListing(request):
+    if request.method == "GET":
+        allCategories = Category.objects.all()
+        return render(request, "beauty/create.html",{
+            "categories": allCategories
+        })
+    else:
+        productName = request.POST["productName"]
+        informaton = request.POST["information"]
+        image = request.POST["image"]
+        price = request.POST["price"]
+        category = request.POST["category"]
+        categoryData = Category.objects.filter(id=category).first()
+        
+        
+        newListing = Product(
+            productName=productName,
+            information=informaton,
+            image=image, 
+            price=price,
+            category=categoryData,
+            
+        )
+        newListing.save()
+        return redirect(index)
+
