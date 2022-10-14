@@ -3,8 +3,12 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
     box-sizing: border-box;
     font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
 
 }
 
@@ -141,8 +145,36 @@ body{
     color: aqua
     
 }
+img{
+    width: 100%;
+}
+.shop{
+    margin-top: 2rem;
+}
+.container{
+    max-width: 1068px;
+    margin: auto;
+    width: 100%;
+}
+.shop-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(220px,auto));
+    gap: 1.5rem;
 
-
+}
+.Product-box{
+    position: relative;
+}
+.Product-box:hover{
+    padding: 10px;
+    border: 1px solid dimgray;
+    transition: 0.4s;
+}
+.product-img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
 
 
 
