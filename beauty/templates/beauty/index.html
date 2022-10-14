@@ -55,7 +55,11 @@
     <p>
         Special product and new collection
     </p>
+    {% for n in beauty.photos.all %}
+    <img src="{% static n.url %}"  width="250" height="250">
+    {% endfor %}
     <div class="pro-container" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
+        {% for listing in listings  %}
         <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
             <img src="{{ Product.image }}" style="width: 100%; border-radius:20px; height: 320px;">
             <div class="cat" style="text-align: start; padding:10px 0;">
@@ -65,6 +69,7 @@
             </div>
             <a href="#" style="width: 40px; height:40px; line-height:40px; border-radius:50px; background-color: #e8f6ea; font-weight:500;color:palevioletred; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right:10px; "><i class="fa-solid fa-cart-shopping" ></i></a>
         </div>
+        {% endfor %}
        <!-- <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
             <img src="{% static 'images/p2.jpg'%}" style="width: 100%; border-radius:20px; height: 320px;">
             <div class="cat" style="text-align: start; padding:10px 0;">
@@ -152,5 +157,6 @@
         </div>
     </section>
 
-{% endblock %}
+    
+    {% endblock %}
    
