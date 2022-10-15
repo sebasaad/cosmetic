@@ -1,5 +1,6 @@
 
 
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
@@ -21,6 +22,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name="categoryProduct")
     information = models.CharField(max_length=500)
     quntity = models.FloatField(default=0)
+    isActive = models.BooleanField(default=True)
     
 
 class wishList(models.Model):

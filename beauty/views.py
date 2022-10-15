@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import  redirect
 
-from beauty.models import User, Category, Product
+from .models import User, Category, Product
 
 # Create your views here.
 
@@ -16,8 +16,10 @@ from beauty.models import User, Category, Product
 
 
 def index(request):
- 
-    return render(request, "beauty/index.html")
+    activeProduct = Product.objects.filter(isActive=True)
+    return render(request, "beauty/index.html",{
+        "products": activeProduct
+    })
 
 def login_view(request):
     if request.method == "POST":
