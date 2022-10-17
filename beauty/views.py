@@ -12,10 +12,22 @@ from .models import User, Category, Product
 # Create your views here.
 
 
-def category(request):
-    
-    return render(request, "beauty/category.html")
 
+
+
+def categories(request):
+    return render(request, "beauty/categories.html",{
+        "categories":Category.objects.all(),
+    })
+
+
+
+def categories_choose(request, id):
+    auctions_by_cat = Product.objects.filter(category_id= id)
+    return render(request, "beauty/index.html",{
+        "auctions" : auctions_by_cat,
+        "photos" : Category.objects.all(),
+    })
 
 def index(request):
     activeProduct = Product.objects.filter(isActive=True)
