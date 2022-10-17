@@ -1,0 +1,29 @@
+{% extends "beauty/layout.html" %}
+{% load static %}
+{% block content %}
+{% csrf_token %}
+
+
+
+<section id="product1" class="section-p1" style="text-align:center ;">
+  <h2><a class="nav-link" >Category</a></h2>
+  
+<div class="pro-container" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
+        {% for product in products  %}
+        <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
+            <img src="{{ product.image }}" style="width: 100%; border-radius:20px; height: 320px;">
+            <div class="cat" style="text-align: start; padding:10px 0;">
+                <span style="color:#606063; font-size:12px;">{{ product.category }}</span>
+                <h5 style="padding-top:7px; color: #1a1a1a; font-size: 18px; font-weight: 700;">{{ product.productName }}</h5>
+                <h4 style="padding-top:2px ; font-size:17px; font-weight: 600; color: palevioletred;">{{ product.price }}</h4>
+            </div>
+            <a href="#" style="width: 40px; height:40px; line-height:40px; border-radius:50px; background-color: #e8f6ea; font-weight:500;color:palevioletred; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right:10px; "><i class="fa-solid fa-cart-shopping" ></i></a>
+        </div>
+        {% endfor %}
+
+
+</div>
+</section>
+
+
+        {% endblock %}

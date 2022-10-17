@@ -12,7 +12,9 @@ from .models import User, Category, Product
 # Create your views here.
 
 
-
+def category(request):
+    
+    return render(request, "beauty/category.html")
 
 
 def index(request):
@@ -99,4 +101,5 @@ def createListing(request):
         )
         newListing.save()
         return redirect(index)
+        
 
