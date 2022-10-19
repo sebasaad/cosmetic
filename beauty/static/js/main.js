@@ -31,7 +31,12 @@ if (close) {
         nav.classList.remove('active');
     })
 }
-
+//cart working
+if (document.readyState == "loading")   {
+    document.addEventListener('DOMContentLoaded',ready);
+} else {
+    ready();
+}
 
 
 
@@ -54,6 +59,16 @@ function ready() {
         var button=addCart[i];
         button.addEventListener("click", addCartClicked)
     }
+    document.getElementsByClassName('btn-buy').addEventListener("click", buybuttonClicked);
+}
+
+function buybuttonClicked(){
+    alert("Your Order Is Bleased");
+    var cartcontent=document.getElementsByClassName('cart-content')[0];
+    while(cartcontent.hasChildNodes()){
+        cartcontent.removeChild(cartcontent.firstChild);
+    }
+    updatetotal();
 }
 
 
@@ -91,9 +106,7 @@ function addProductToCart(title,price,productImg){
         alert("You Have Already Add This Item To Cart");
         return;
     }
-}
-
-var CartBoxContent=`
+    var CartBoxContent=`
                 <image src="${productImg}" alt="" class="cart-img"  />
                 <div class="cart-details">
                     <div class="cart-product-details">${title}</div>
@@ -104,11 +117,15 @@ var CartBoxContent=`
                 <i class='bx bxs-trash cart-remove'></i>
 
 `;
-cartShopBox.innerHTML = cartBoxContent
-cartItem=append(cartShopBox)
-cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
-cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change',quantityChanged);
-cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
+    cartShopBox.innerHTML = cartBoxContent
+    cartItem=append(cartShopBox)
+    cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
+    cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change',quantityChanged);
+    cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
+
+
+
+}
 
 
 function updatetotal(){
@@ -122,17 +139,13 @@ function updatetotal(){
         var price=parseFloat(priceElemnt.innerText.replace("$",""));
         var quantity=quantityElemnt.value;
         total = total +(price * quantity);
-
-        document.getElementsByClassName('total-price')[0].innerText='$'+total;
     }
+    //if prise contain cents 
+        total=Math.round(total * 100 /100);
+        document.getElementsByClassName('total-price')[0].innerText='$'+total;
+ }
 
-}
 
 
 
-//cart working
-if (document.readyState == "loading")   {
-    document.addEventListeners('DOMContentLoaded',ready);
-} else {
-    ready();
-}
+
