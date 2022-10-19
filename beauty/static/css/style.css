@@ -154,6 +154,14 @@ body{
     color: aqua
     
 }
+.ch-cat li a{
+    text-decoration: none;
+    color: #000;
+}
+.ch-cat li a:hover{
+    
+    color: palevioletred;
+}
 .cart{
     position: fixed;
     top: 0;
@@ -366,4 +374,21 @@ img{
         font-size: 24px;
     }
      
+    #hero {
+        height: 70vh;
+        
+        background-position: top 30% right 30%;
+        
+    }
+    #categories{
+        justify-content: center;
+        
+    }
+
+
+
+
+    #product1 .pro-container .pro{
+        justify-content: center;
+    }
 }
