@@ -2,9 +2,21 @@
 {% load static %}
 {% block content %}
 {% csrf_token %}
+
   <section id="hero" >
-    <img src="{% static 'images/header.jpg' %}" style="height:80vh; width: 100%; background-size: cover; background-position: top 25% right 0; padding: 10px 80px 0; display: flex;"/>
-    
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images\Lisa-Blackpink-MAC-Lede.png'%}" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images\img1.jpg'%}" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images\img2.jpg'%}" alt="Third slide">
+          </div>
+        </div>
+      </div>
   </section>
    
 
@@ -86,88 +98,21 @@
    <!-- {% for n in beauty.photos.all %}
     <img src="{% static n.url %}"  width="250" height="250">
     {% endfor %} -->
-    <div class="pro-container" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
-        {% for product in products  %}
-        <div class="pro" style="width: 23%; min-width: 250px; padding: 10px 12px; border:1px solid #cce7d0; border-radius:25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition:0.2s ease; position: relative; ">
-            <img src="{{ product.image }}" style="width: 100%; border-radius:20px; height: 320px;">
-            <div class="cat" style="text-align: start; padding:10px 0;">
-                <span style="color:#606063; font-size:12px;">{{ product.category }}</span>
-                <h5 style="padding-top:7px; color: #1a1a1a; font-size: 18px; font-weight: 700;">{{ product.productName }}</h5>
-                <h4 style="padding-top:2px ; font-size:17px; font-weight: 600; color: palevioletred;">{{ product.price }}</h4>
-            </div>
-            <a href="#" style="width: 40px; height:40px; line-height:40px; border-radius:50px; background-color: #e8f6ea; font-weight:500;color:palevioletred; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right:10px; "><i class="fa-solid fa-cart-shopping" ></i></a>
-        </div>
-        {% endfor %}
+    <section class="shop container">
 
-  <section class="shop container">
-    <div class="shop-content">
-    <!--box1-->
-        <div class="Product-box" >
-            <image src="{% static 'images/maceyebro.png'%}" alt="" class="product-img"  />
-            <h3 class="product-title" >EYE BROWS STYLER </h3>
-            <span class="price">$20</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-
-        </div>
-         <!--box2-->
-        <div class="Product-box" >
-         <image src="{% static 'images/macpro.png'%}" alt="" class="product-img"  />
-            <h3 class="product-title" >PRO LONGWEAR PAINT POT  </h3>
-            <span class="price">$25</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-
-        </div>
-         box3-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >POWDER KISS LIPSTICK</h4>
-            <span class="price">$24</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box4-->
-        <div class="Product-box" >
-            <image src="{% static 'images/maclip.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >LOVE ME LIQUID LIPCOLOUR</h4>
-            <span class="price">$26</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box5-->
-        <div class="Product-box" >
-            <image src="{% static 'images/macfond.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >STUDIO SCULPT SPF 15 FOUNDATION</h4>
-            <span class="price">$31</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box6-->
-        <div class="Product-box" >
-            <image src="{% static 'images/macmis.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >M·A·CSTACK MASCARA</h4>
-            <span class="price">$28</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box7-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac2x.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >@XIMEPONCH</h4>
-            <span class="price">$23</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box8-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac_sku_MT7E14_1x1_0.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >MINERALIZE</h4>
-            <span class="price">$40</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-    </div> 
-
-
+        <div class="shop-content" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
+            {% for product in products  %}
+            <div class="Product-box" >
+                <img src="{{ product.image }}" calss="product-img" >
+                <div class="cat" style="text-align: start; padding:10px 0;">
+                    <span style="color:#606063; font-size:12px;">{{ product.category }}</span>
+                    <h5 class="product-title">{{ product.productName }}</h5>
+                    <span calss="price">{{ product.price }}</span>
+                </div>
+           <i class="fa-solid fa-cart-shopping add-cart" ></i>
+         </div>
+            {% endfor %}
+    </section>    
 
 
 

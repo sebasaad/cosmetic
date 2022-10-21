@@ -102,6 +102,60 @@ body{
     list-style: none;
     padding: 0 8px;
 }
+#slider{
+    overflow: hidden;
+}
+#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    animation-name: slider;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+   
+}
+#slider figure img{
+    width: 20%;
+    float: left;
+}
+
+@keyframes slider{
+    0% {
+        left: 0;
+    }
+    20% {
+        left: 0;
+    }
+    25% {
+        left: -100;
+    }
+    45% {
+        left: -100;
+    }
+    50% {
+        left: -200;
+    }
+    70% {
+        left: -200;
+    }
+    75% {
+        left: -300;
+    }
+    95% {
+        left: -300;
+    }
+    100% {
+        left: -400;
+    }
+
+}
+
+
+
+
+
+
 
 #nav li a{
     text-decoration: none;
@@ -297,7 +351,8 @@ img{
 }
 .product-img{
     width: 100%;
-    height: auto;
+    height: 320px;
+    border-radius: 20px;
     margin-bottom: 0.5rem;
 }
 
@@ -322,6 +377,7 @@ img{
     color: var(--bg-color);
     padding: 10px;
     cursor: pointer;
+    color: palevioletred;
 
 }
 .add-cart:hover{
