@@ -279,6 +279,16 @@ img{
 }
 .Product-box{
     position: relative;
+    width: 30%;
+    min-width: 250px;
+    padding: 10px 12px; 
+    border:1px solid #cce7d0;
+    border-radius:25px; 
+    cursor: pointer; 
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); 
+    margin: 15px 0; 
+    transition:0.2s ease; 
+    
 }
 .Product-box:hover{
     padding: 10px;
@@ -299,6 +309,9 @@ img{
 }
 .price{
     font-weight: 500;
+    padding-top:2px ; 
+    font-size:17px; 
+    color: palevioletred;
 
 }
 .add-cart{
