@@ -91,36 +91,40 @@ function quantityChanged(event){
 function addCartClicked(event){
     var button=event.target;
     var shopProduct = button.parentElement;
-    var title=document.getElementsByClassName('product-title')[0].innerText;
-    var price=document.getElementsByClassName('price')[0].innerText;
-    var productImg=document.getElementsByClassName('product-img')[0].src;
-    addProductToCart(title,price,productImg)
+    var titleObj = shopProduct.querySelector('.product-title')
+    var id = titleObj.dataset.id;
+    var title=titleObj.innerText;
+    var price=shopProduct.querySelector('.price').innerText;
+    console.log(shopProduct.querySelector('.price'))
+    var productImg=document.querySelector('.product-img').src;
+    addProductToCart(title,price,productImg, id)
     updatetotal();
 }
-function addProductToCart(title,price,productImg){
+function addProductToCart(title,price,productImg, id){
     var cartShopBox=document.createElement("div");
     cartShopBox.classList.add("cart-box");
     var cartItem =document.getElementsByClassName('cart-content')[0];
-    var cartItemName=document.getElementsByClassName('cart-product-details');
+    var cartItemName=document.querySelectorAll('.cart-product-details');
     for ( var i = 0; i <cartItemName.length; i++){
-        alert("You Have Already Add This Item To Cart");
-        return;
+        if(id == cartItemName[i].dataset.id) {
+            return
+        }
     }
     var CartBoxContent=`
                 <image src="${productImg}" alt="" class="cart-img"  />
                 <div class="cart-details">
-                    <div class="cart-product-details">${title}</div>
+                    <div class="cart-product-details" data-id="${id}">${title}</div>
                     <div class="cart-price">${price}</div>
-                    <input type="number" value="1" calss="cart-quantity">
+                    <input type="number" value="1" class="cart-quantity">
                 </div>
                 <!--remove item-->
                 <i class='bx bxs-trash cart-remove'></i>
 
 `;
-    cartShopBox.innerHTML = cartBoxContent
-    cartItem=append(cartShopBox)
+    cartShopBox.innerHTML = CartBoxContent
+    cartItem.appendChild(cartShopBox)
     cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
-    cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change',quantityChanged);
+    cartShopBox.querySelector('.cart-quantity').addEventListener('change',quantityChanged);
     cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click',removeCartItem);
 
 
@@ -134,8 +138,8 @@ function updatetotal(){
     var total= 0 ;
     for ( var i=0; i<cartboxs.length; i++){
         var cartBox=cartboxs[i];
-        var priceElemnt=cartBox.getElementsByClassName('cart-price')[0];
-        var quantityElemnt=cartBox.getElementsByClassName('cart-quantity')[0];
+        var priceElemnt=cartBox.querySelector('.cart-price');
+        var quantityElemnt=cartBox.querySelector('.cart-quantity');
         var price=parseFloat(priceElemnt.innerText.replace("$",""));
         var quantity=quantityElemnt.value;
         total = total +(price * quantity);
