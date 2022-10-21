@@ -10,39 +10,47 @@
 
   <section id="categories" class="section-p1" style="display: flex; align-items:center; justify-content:space-between; flex-wrap: wrap; margin-top: 15px; ">
     <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
-        <img src="{% static 'images/lotion.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
-        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lotions</h6>
+        <a href="{% url 'categories_choose' 1 %}">
 
+
+        <img src="{% static 'images/liostick.jpg' %}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lipstick</h6>
+        </a>    
 
     </div>
     <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <a href="{% url 'categories_choose' 4 %}">
         <img src="{% static 'images/shadow.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">shadow</h6>
-
+        </a>
 
     </div>
     <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <a href="{% url 'categories_choose' 3 %}">
         <img src="{% static 'images/serume.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Serume</h6>
-
+         </a>
 
     </div>
     <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <a href="{% url 'categories_choose' 5 %}">
         <img src="{% static 'images/mascara.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Mascara</h6>
-
+        </a>
 
     </div>
     <div class="ca-box" style="width: 180px; text-align:center; padding: 25px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
-        <img src="{% static 'images/liostick.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
-        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lipstock</h6>
-
+        <a href="{% url 'categories_choose' 7 %}">
+        <img src="{% static 'images/lotion.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
+        <h6 style=" display:inline-block; padding: 9px 8px 6px 8px; line-height:1; border-radius:4px ; background-color: #fddde4; ">Lotion</h6>
+        </a>
 
     </div>
     <div class="ca-box" style="width: 180px; text-align:center; padding: 28px 15px; cursor: pointer; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03) ; border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; ">
+        <a href="{% url 'categories' %}">
         <img src="{% static 'images/seeall.jpg'%}" style="height: 120px; width:100%; border-radius: 4px; margin-bottom: 10px; "/>
         <button style=" display:inline-block; padding: 6px 8px 5px 8px; line-height:1; border-radius:4px ; background-color: #fddde4;border: none; font-size: 15px; ">See all >></button>
-
+    </a>
 
     </div>
 
@@ -99,81 +107,7 @@
         </div>
         {% endfor %}
 
-  <section class="shop container">
-    <div class="shop-content">
-    <!--box1-->
-        <div class="Product-box" >
-            <image src="{% static 'images/maceyebro.png'%}" alt="" class="product-img"  />
-            <h3 class="product-title" >EYE BROWS STYLER </h3>
-            <span class="price">$20</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-
-        </div>
-         <!--box2-->
-        <div class="Product-box" >
-         <image src="{% static 'images/macpro.png'%}" alt="" class="product-img"  />
-            <h3 class="product-title" >PRO LONGWEAR PAINT POT  </h3>
-            <span class="price">$25</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-
-        </div>
-         box3-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >POWDER KISS LIPSTICK</h4>
-            <span class="price">$24</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box4-->
-        <div class="Product-box" >
-            <image src="{% static 'images/maclip.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >LOVE ME LIQUID LIPCOLOUR</h4>
-            <span class="price">$26</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box5-->
-        <div class="Product-box" >
-            <image src="{% static 'images/macfond.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >STUDIO SCULPT SPF 15 FOUNDATION</h4>
-            <span class="price">$31</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box6-->
-        <div class="Product-box" >
-            <image src="{% static 'images/macmis.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >M·A·CSTACK MASCARA</h4>
-            <span class="price">$28</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box7-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac2x.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >@XIMEPONCH</h4>
-            <span class="price">$23</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-        <!--box8-->
-        <div class="Product-box" >
-            <image src="{% static 'images/mac_sku_MT7E14_1x1_0.png'%}" alt="" class="product-img"  />
-            <h4 class="product-title" >MINERALIZE</h4>
-            <span class="price">$40</span>
-            <i class='bx bx-shopping-bag add-cart' ></i>
-
-        </div>
-    </div> 
-
-
-
-
-
-
-  </section>
-
+ 
 
   
    

@@ -2,6 +2,7 @@ from audioop import reverse
 from imaplib import _Authenticator
 from multiprocessing import AuthenticationError
 from sqlite3 import IntegrityError
+from unicodedata import name
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -13,20 +14,51 @@ from .models import User, Category, Product
 
 
 
+def search(request):
+    pro = Product.objects.all()
+    name = None
+    if 'searchname' in request.GET:
+        name = request.GET['searchname']
+        if name:
+            pro = pro.filter(productName__icontains=name)
 
+        context = {
+            'products':pro
+        }
+        return render(request, 'beauty/search.html', context)
+    return render(request, 'beauty/search.html', {'products': pro})
+"""
+
+
+def search(request):        
+    if request.method == 'POST':      
+        searchname =  request.POST.getlist('search')      
+        try:
+            status = Add_prod.objects.filter(productName__icontains=searchname)
+            #Add_prod class contains a column called 'bookname'
+        except Add_prod.DoesNotExist:
+            status = None
+        return render(request,"search.html",{"product":status})
+    else:
+        return render(request,"search.html",{})
+
+
+"""
 
 def categories(request):
+    auctions = Product.objects.all()
     return render(request, "beauty/categories.html",{
         "categories":Category.objects.all(),
+        "products" : auctions,
     })
 
 
 
 def categories_choose(request, id):
     auctions_by_cat = Product.objects.filter(category_id= id)
-    return render(request, "beauty/index.html",{
-        "auctions" : auctions_by_cat,
-        "photos" : Category.objects.all(),
+    return render(request, "beauty/categories.html",{
+        "products" : auctions_by_cat,
+        "categories" : Category.objects.all(),
     })
 
 def index(request):

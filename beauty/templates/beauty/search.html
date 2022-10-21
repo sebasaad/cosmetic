@@ -4,30 +4,17 @@
 {% csrf_token %}
 
 
+<div>
+    <form action="{% url 'search' %}" method="GET">
+        <div>
+            <label>Product Name</label>
+            <input type="text" name="searchname" value="{{ request.GET.searchname }}" />
 
-<section id="product1" class="section-p1" style="text-align:center ;">
-  <h2><a class="nav-link" >Choose Category</a></h2>
-  
-
-     
-  
-      {% if messages %}
-      <div class="messages">
-          {% for message in messages %}
-              {{ message }}
-          {% endfor %}
-      </div>
-      {% endif %}
-       
-      {% for n in categories %}
-      <div class="ch-cat">
-       <li><a href="{% url 'categories_choose' n.id %}">{{ n.categoryName }}</a></li>
-       </div>
-       {% endfor %}
-  
-
-
+        </div>
+    </form>
 </div>
+
+
 </section>
 <div class="pro-container" style="display:flex; justify-content:space-between; padding-top:20px; flex-wrap:wrap; ">
     {% for product in products  %}
@@ -44,4 +31,12 @@
         Not Found
     {% endfor %}
 </div>
-        {% endblock %}
+
+
+
+
+
+
+
+
+{% endblock %}

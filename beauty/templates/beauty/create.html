@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Create New Product</h2>
 
-    <form action="{% url 'create' %}" method="POST">
+    <form action="{% url 'create' %}" method="POST" class="section-p1">
         {% csrf_token %}
         <div class="form-group">
             <label for="productName">Product Name</label>
@@ -31,7 +31,7 @@
         
 
         </div>
-        <button type="submit" class="btn btn-primary">Create New Listing</button>
+        <button type="submit" class="btn btn-primary" >Create New Listing</button>
         
     </form>
 
