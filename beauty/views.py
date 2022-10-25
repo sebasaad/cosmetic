@@ -66,6 +66,18 @@ def index(request):
     return render(request, "beauty/index.html",{
         "products": activeProduct
     })
+    
+def addWatchlist(request, id):
+    listingData=Product.objects.get(pk=id)
+    currentuser=request.user
+    listingData.watchlist.add(currentuser)
+    return HttpResponseRedirect(reverse("index",args=(id, )))
+    
+def addCart(request, id):
+    listingData=Product.objects.get(pk=id)
+    currentuser=request.user
+    listingData.watchlist.add(currentuser)
+    return HttpResponseRedirect(reverse("index",args=(id, )))    
 
 def login_view(request):
     if request.method == "POST":
