@@ -1,5 +1,7 @@
 from audioop import reverse
 from imaplib import _Authenticator
+from itertools import product
+from math import prod
 from multiprocessing import AuthenticationError
 from sqlite3 import IntegrityError
 from unicodedata import name
@@ -67,17 +69,13 @@ def index(request):
         "products": activeProduct
     })
     
-def addWatchlist(request, id):
-    listingData=Product.objects.get(pk=id)
-    currentuser=request.user
-    listingData.watchlist.add(currentuser)
-    return HttpResponseRedirect(reverse("index",args=(id, )))
+
     
-def addCart(request, id):
+def BuyCart(request, id):
     listingData=Product.objects.get(pk=id)
     currentuser=request.user
-    listingData.watchlist.add(currentuser)
-    return HttpResponseRedirect(reverse("index",args=(id, )))    
+    listingData.buy.add(currentuser)
+    return HttpResponseRedirect(reverse("buy",args=(id, )))    
 
 def login_view(request):
     if request.method == "POST":
@@ -158,4 +156,17 @@ def createListing(request):
         newListing.save()
         return redirect(index)
         
-
+def like(request,id):
+    product=Product.objects.get(id=id)
+    
+    if request.user in product.like.all():
+        product.like.remove(request.user)
+    else:
+        product.like.add(request.user)
+    return redirect(reverse('index',kwargs={'id': product.id}))
+    
+def user_favorite(request):
+    user_favorite=Product.objects.filter(like=request.user)   
+    return render(request,"beauty/userFav.html",{
+        'user_favorite':user_favorite
+    })     

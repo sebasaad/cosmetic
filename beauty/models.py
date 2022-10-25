@@ -28,6 +28,7 @@ class Product(models.Model):
     information = models.CharField(max_length=500)
     quntity = models.FloatField(default=0)
     isActive = models.BooleanField(default=True)
+    like=models.ManyToManyField(User,blank=True)
     
 
 class wishList(models.Model):

@@ -88,25 +88,7 @@
 
 
 
-    <div class="wishList">
-        <h2 class="wish-title">Your wishList   </h2>
-        <div class="Wish-content">
-            
-          
-        </div>
-        <!--total price-->
-        <div class="total">
-            <div class="total-title">Total</div>
-            <div class="total-price">$0</div>
-
-        </div>
-
-        <!--button for buy-->
-        <button type="button" class="btn-buy">Add To Cart</button>
-        <!--cart close-->
-        <i class='bx bx-x' id="close-love"></i>
-
-    </div>
+    
 
         
 
@@ -132,7 +114,12 @@
                     <span class="price">{{ product.price }}</span>
                 </div>
            <i class="fa-solid fa-cart-shopping add-cart" ></i>
-           <i class='bx bx-heart addWishlist'></i>
+
+            {% if request.user in product.like.all %}
+                <a href={% url 'like' product.id %}><i class='bx bx-heart addWishlist'></i></a>
+            {% else %} 
+                <a href={% url 'like' product.id %}><i class='bx bx-heart addWishlist'></i></a>
+            {% endif %}        
          </div>
             {% endfor %}
     </section>    
