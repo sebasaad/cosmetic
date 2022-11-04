@@ -4,19 +4,27 @@
 {% csrf_token %}
 
   <section id="hero" >
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{% static 'images\Lisa-Blackpink-MAC-Lede.png'%}" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'images\img1.jpg'%}" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'images\img2.jpg'%}" alt="Third slide">
-          </div>
+    <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://pbs.twimg.com/media/Dr3_frKWsAEqQie.jpg" class="d-block w-100" alt="Wild Landscape"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://lh3.googleusercontent.com/ym5zTX0rFKWe_2p5mIoKO_gHgtjouegbOJ5NgcxmWYXqWg97JZB26mscv2AWhypGaDOzpm7IxSbmPecLwXpHExP0QWaDmtOoBA=w1200-h630-rj-pp-e365" class="d-block w-100" alt="Camera"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://mbrellafilms.com/wp-content/uploads/2020/12/Sasi-Lipline-Online-Advertisement-Mbrella-Films.jpg" class="d-block w-100" alt="Exotic Fruits"/>
         </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </section>
    
 
@@ -116,7 +124,7 @@
            <i class="fa-solid fa-cart-shopping add-cart" ></i>
 
             {% if request.user in product.like.all %}
-                <a href={% url 'like' product.id %}><i class='bx bx-heart addWishlist'></i></a>
+                <a href={% url 'like' product.id %}><i class='bx bxs-heart addWishlist'></i></a>
             {% else %} 
                 <a href={% url 'like' product.id %}><i class='bx bx-heart addWishlist'></i></a>
             {% endif %}        
@@ -124,6 +132,20 @@
             {% endfor %}
     </section>    
 
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-mdb-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -132,80 +154,7 @@
   
    
    
-    <section id="sm-banner" class="section-p1">
-  
-        <div class="banner-box" style=" display:flex; justify-content:space-between;  flex-wrap:wrap;">
-            <!-- Carousel wrapper -->
-<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-    <!-- Indicators -->
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-mdb-target="#carouselBasicExample"
-        data-mdb-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-mdb-target="#carouselBasicExample"
-        data-mdb-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-mdb-target="#carouselBasicExample"
-        data-mdb-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
-    </div>
-  
-    <!-- Inner -->
-    <div class="carousel-inner">
-      <!-- Single item -->
-      <div class="carousel-item active">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100" alt="Sunset Over the City"/>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
-      </div>
-  
-      <!-- Single item -->
-      <div class="carousel-item">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100" alt="Canyon at Nigh"/>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-  
-      <!-- Single item -->
-      <div class="carousel-item">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100" alt="Cliff Above a Stormy Sea"/>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Inner -->
-  
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <!-- Carousel wrapper -->
-            
-        </div>
-    </section>
+
 
     <section id="footer" style="background-color: rgb(237, 237, 245) ; padding: 30px;">
         

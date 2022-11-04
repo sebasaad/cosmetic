@@ -88,7 +88,7 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return redirect("index")
         else:
             return render(request, "beauty/login.html", {
                 "message": "Invalid username and/or password."
@@ -98,7 +98,7 @@ def login_view(request):
     
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse("index"))
+    return redirect("index")
 
 def register(request):
     if request.method == "POST":
@@ -163,10 +163,12 @@ def like(request,id):
         product.like.remove(request.user)
     else:
         product.like.add(request.user)
-    return redirect(reverse('index',kwargs={'id': product.id}))
+    return redirect('index')
     
 def user_favorite(request):
     user_favorite=Product.objects.filter(like=request.user)   
     return render(request,"beauty/userFav.html",{
         'user_favorite':user_favorite
     })     
+
+
