@@ -329,6 +329,14 @@ body{
     color: #1a1a1a;
     cursor: pointer;
 }
+#close-love{
+    position: absolute;
+    top:1rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    color: #1a1a1a;
+    cursor: pointer;
+}
 img{
     width: 100%;
 }
@@ -396,9 +404,68 @@ img{
 
 }
 .add-cart:hover{
-    background: palevioletred;
+    background: plum;
+}
+.addWishlist{
+    position:absolute;
+    bottom: 0;
+    right: 25px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 10px;
+    cursor: pointer;
+    color: palevioletred;
+}
+.addWishlist:hover{
+    background-color: plum;
 }
 
+.wishList{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    min-height: 100vh;
+    margin-top: 50px;
+    padding:20px;
+    background:rgb(243, 162, 194);
+    box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+    transition: 0.3s;
+}
+.wishList.actived{
+    right: 0;
+}
+.wish-img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+.wish-details{
+    display: grid;
+    row-gap: 0.5rem;
+}
+.wish-product-details{
+    font-size: 1rem;
+    text-transform: uppercase;
+
+}
+.wish-price{
+    font-weight: 500;
+}
+
+.wish-remove{
+    font-size: 24px;
+    color:black;
+    cursor: pointer;
+
+}    
+.wish-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem;
+}
 
 .footer-content{
     display: flex;

@@ -12,5 +12,8 @@ urlpatterns = [
     path("categories",views.categories, name="categories"),
     path("categories/<int:id>", views.categories_choose, name="categories_choose"),
     path("search",views.search, name="search"),   
+    path("<int:id>/like",views.like, name="like"), 
+    path("user_favorite",views.user_favorite, name="user_favorite"), 
+   
     
 ]

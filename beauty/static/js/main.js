@@ -132,6 +132,7 @@ function addProductToCart(title,price,productImg, id){
 }
 
 
+
 function updatetotal(){
     var cartcontent=document.getElementsByClassName('cart-content')[0];
     var cartboxs=document.getElementsByClassName('cart-box');
@@ -148,8 +149,3 @@ function updatetotal(){
         total=Math.round(total * 100 /100);
         document.getElementsByClassName('total-price')[0].innerText='$'+total;
  }
-
-
-
-
-

@@ -1,5 +1,7 @@
 from audioop import reverse
 from imaplib import _Authenticator
+from itertools import product
+from math import prod
 from multiprocessing import AuthenticationError
 from sqlite3 import IntegrityError
 from unicodedata import name
@@ -66,6 +68,14 @@ def index(request):
     return render(request, "beauty/index.html",{
         "products": activeProduct
     })
+    
+
+    
+def BuyCart(request, id):
+    listingData=Product.objects.get(pk=id)
+    currentuser=request.user
+    listingData.buy.add(currentuser)
+    return HttpResponseRedirect(reverse("buy",args=(id, )))    
 
 def login_view(request):
     if request.method == "POST":
@@ -78,7 +88,7 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return redirect("index")
         else:
             return render(request, "beauty/login.html", {
                 "message": "Invalid username and/or password."
@@ -88,7 +98,7 @@ def login_view(request):
     
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse("index"))
+    return redirect("index")
 
 def register(request):
     if request.method == "POST":
@@ -146,4 +156,19 @@ def createListing(request):
         newListing.save()
         return redirect(index)
         
+def like(request,id):
+    product=Product.objects.get(id=id)
+    
+    if request.user in product.like.all():
+        product.like.remove(request.user)
+    else:
+        product.like.add(request.user)
+    return redirect('index')
+    
+def user_favorite(request):
+    user_favorite=Product.objects.filter(like=request.user)   
+    return render(request,"beauty/userFav.html",{
+        'user_favorite':user_favorite
+    })     
+
 
