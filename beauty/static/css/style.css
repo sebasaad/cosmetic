@@ -498,7 +498,7 @@ img{
     #navbar {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: flex-start;
         position: fixed;
         top: 0;
         right: -300px;
@@ -517,10 +517,14 @@ img{
         right: 0px;
     }
     #navbar li {
+        
        margin-bottom: 25px;
        
     }
 
+    #nav{
+        flex-direction: column;
+    }
     
     #mobile{
         display: flex;
